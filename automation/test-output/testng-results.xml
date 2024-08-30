@@ -2,64 +2,66 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-28T11:01:38 IST" name="Default suite" finished-at="2024-08-28T11:01:45 IST" duration-ms="6162">
+  <suite started-at="2024-08-30T06:01:16 IST" name="Default suite" finished-at="2024-08-30T06:01:25 IST" duration-ms="8734">
     <groups>
     </groups>
-    <test started-at="2024-08-28T11:01:38 IST" name="Default test" finished-at="2024-08-28T11:01:45 IST" duration-ms="6162">
-      <class name="com.automation.test.LogInTest">
-        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:com.automation.test.LogInTest@2925bf5b]" started-at="2024-08-28T11:01:38 IST" name="initializeDriver" finished-at="2024-08-28T11:01:42 IST" duration-ms="3733" status="PASS">
+    <test started-at="2024-08-30T06:01:16 IST" name="Default test" finished-at="2024-08-30T06:01:25 IST" duration-ms="8734">
+      <class name="com.automation.test.HomeTest">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:com.automation.test.HomeTest@6572421]" started-at="2024-08-30T06:01:16 IST" name="launchApp" finished-at="2024-08-30T06:01:21 IST" duration-ms="5117" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initializeDriver -->
-        <test-method signature="VerifyRegistration()[pri:0, instance:com.automation.test.LogInTest@2925bf5b]" started-at="2024-08-28T11:01:42 IST" name="VerifyRegistration" finished-at="2024-08-28T11:01:44 IST" duration-ms="1791" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        </test-method> <!-- launchApp -->
+        <test-method signature="verifyProducts()[pri:0, instance:com.automation.test.HomeTest@6572421]" started-at="2024-08-30T06:01:21 IST" name="verifyProducts" finished-at="2024-08-30T06:01:24 IST" duration-ms="3079" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy12.clear(Unknown Source)
-at com.automation.pageObjects.RegistrationPage.addFirstName(RegistrationPage.java:76)
-at com.automation.test.LogInTest.VerifyRegistration(LogInTest.java:52)
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:819)
+at org.testng.Assert.assertEquals(Assert.java:829)
+at com.automation.test.HomeTest.verifyProducts(HomeTest.java:30)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyRegistration -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.LogInTest@2925bf5b]" started-at="2024-08-28T11:01:44 IST" name="tearDown" finished-at="2024-08-28T11:01:45 IST" duration-ms="485" status="PASS">
+        </test-method> <!-- verifyProducts -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.HomeTest@6572421]" started-at="2024-08-30T06:01:24 IST" name="tearDown" finished-at="2024-08-30T06:01:25 IST" duration-ms="455" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.automation.test.LogInTest -->
+      </class> <!-- com.automation.test.HomeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -6,20 +6,20 @@ import org.openqa.selenium.support.PageFactory;
 import com.automation.basefile.BasePage;
 
 public class PaymentPage extends BasePage {
-	
-	
+
+
 	WebDriver driver;
-	
+
 	public PaymentPage(WebDriver driver)
 	{
 		super(driver);
-	
+
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
-		
+
 	}
-	
-	
+
+
 	String cardNumber = "//div[contains (.,'Credit Card Number')]/input";
 	String CVV        = "//div[contains (.,'CVV Code')]/input";
 	String name       = "//div[contains (.,'Name on Card ')]/input";
@@ -27,39 +27,40 @@ public class PaymentPage extends BasePage {
 	//String selectCountry = "//section/button//span[contains(.,' India')]";
 	String placeOrder ="//a[contains(.,'Place Order ')]";
 	String successMSG = "//table//h1[@class = 'hero-primary']";
-	
-	
+	String orderHistory = "//label[contains(.,'Orders History Page ')]";
+
+
 	public void addCardNo (String cardValuer)
 	{
 		sendKeysByXpath (cardNumber, cardValuer);
 	}
-	
+
 	public void addCVV (String CVV_Valuer)
 	{
 		sendKeysByXpath (CVV, CVV_Valuer);
 	}
-	
+
 	public void addName (String nameValue)
 	{
 		sendKeysByXpath (name, nameValue);
 	}
-	
+
 	public void chooseCountry (String countryName)
 	{
 		sendKeysByXpath (countryname, countryName);
 		clickByXpath (countryname);
 		clickByXpath ("//section/button//span[contains(.,' "+ countryName+"')]");
-		
+
 	}
-	
+
 	public void placeOrder ()
 	{
 		clickByXpath (placeOrder);
 	}
-	
+
 	public void completeOrder (String cardName, String name, String cvv, String country)
 	{
-		
+
 		addCardNo (cardName);
 		addCVV(cvv);
 		addName(name);
@@ -70,8 +71,8 @@ public class PaymentPage extends BasePage {
 	{
 		return getTextByXpath(successMSG);
 	}
-	
-	
-	
+
+
+
 
 }

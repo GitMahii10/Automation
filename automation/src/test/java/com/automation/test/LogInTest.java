@@ -1,7 +1,6 @@
 package com.automation.test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -13,28 +12,26 @@ import com.automation.pageObjects.LoginPage;
 import com.automation.pageObjects.RegistrationPage;
 
 public class LogInTest extends BaseTest{
-	
-	WebDriver driver;
+
 	
 	@Test
 	public void VerifyLogIn() throws IOException
 	{
 		String email = "testdata@mailinator.com";
 		String password = "MKO)(*nji9";
+
+		 loginPage = new LoginPage(driver);
+		 
+		 //loginPage.login(email, password).
 		
-		LoginPage loginPage = launchApp();
-		//String s = loginPage.login(email, password).getErrorMessage();
-		
-	//assert.assertTrue("waitForWebElementToAppear",	loginPage.login(email, password).getErrorMessage());
-	//assert.assertTrue("Login Successfully",	(loginPage.login(email, password).getErrorMessage()));
+
+	
 	assertEquals("Login Successfully", loginPage.login(email, password).getErrorMessage());
-		
+
 	}
 
-	private boolean assertTrue(String string, String errorMessage) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+	
 	@Test
 	public void VerifyRegistration() throws IOException
 	{
@@ -42,14 +39,15 @@ public class LogInTest extends BaseTest{
 		String lastName = "NewlastName";
 		String mobileNo = "9965265879";
 		String occupation = "Engineer";
-		String email = "testdata123@mailinator.com";
+		String email = "tetaaaa35411237@mailinator.com";
 		String password = "MKO)(*nji9";
-		
-		
-		LoginPage loginPage = launchApp();
+
+
+		//LoginPage loginPage = launchApp();
+		LoginPage loginPage = new LoginPage(driver);
 		RegistrationPage regPage = new RegistrationPage(driver);
-		
-				
+
+         regPage.clickRegister();
 		 regPage.addFirstName(firstName)
 		   		.addLastName(lastName)
 		   		.addEmailId(email)
@@ -57,11 +55,41 @@ public class LogInTest extends BaseTest{
 		        .addPhoneNo(mobileNo)
 		        .selectOccupation(occupation)
 		        .check18YearOld()
-		        .chooseGender("Male");
+		        .chooseGender("Male")
+		        .submitRegistration();
 		 
+		System.out.println ( regPage.getMessage());
+
+
+		 assertEquals("Account Created Successfully", regPage.confirmRegistration());
+	}
+	@Test
+	public void registerwithExistingEmail() throws IOException
+	{
+		String firstName = "NewFirstName";
+		String lastName = "NewlastName";
+		String mobileNo = "9965265879";
+		String occupation = "Engineer";
+		String email = "tetaataa1123@mailinator.com";
+		String password = "MKO)(*nji9";
+
+
+		//LoginPage loginPage = launchApp();
+		RegistrationPage regPage = new RegistrationPage(driver);
+
+         regPage.clickRegister();
+		 regPage.addFirstName(firstName)
+		   		.addLastName(lastName)
+		   		.addEmailId(email)
+		   		.addPassword(password)
+		        .addPhoneNo(mobileNo)
+		        .selectOccupation(occupation)
+		        .check18YearOld()
+		        .chooseGender("Male")
+		        .submitRegistration();
 		 
-		 
-		 assertEquals("Registration Successfully", loginPage.getErrorMessage());
+		
+		 assertEquals("User already exiIsits with this Email Id!", regPage.getMessage());
 	}
 
 }
