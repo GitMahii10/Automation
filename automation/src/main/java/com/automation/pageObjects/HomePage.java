@@ -66,7 +66,7 @@ WebDriver driver;
 	}
 
 	public List<WebElement> getProductList() {
-		waitForElementToAppear(ProductByXpath);
+		waitForElementToAppearBy(ProductByXpath);
 		return products;
 	}
 
@@ -82,7 +82,7 @@ WebDriver driver;
 	{
 		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCartByXpath).click();
-		waitForElementToAppear(toastMessageByXpath);
+		waitForElementToAppearBy(toastMessageByXpath);
 		waitForElementToDisappear(spinner);
 
 

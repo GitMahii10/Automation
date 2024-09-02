@@ -6,8 +6,7 @@
       <class name="com.automation.test.HomeTest">
         <methods>
           <include name="launchApp"/>
-          <include name="verifyProducts"/>
-          <include name="tearDown"/>
+          <include name="completePayment"/>
         </methods>
       </class> <!-- com.automation.test.HomeTest -->
     </classes>

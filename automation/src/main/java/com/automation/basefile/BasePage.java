@@ -1,8 +1,10 @@
 package com.automation.basefile;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,10 +26,22 @@ public BasePage(WebDriver driver) {
 	}
 
 
-	public void waitForWebElementToAppearBy(WebElement ele) {
+
+  //=====================================================
+  //   EXPLICIT WAITS BASED ON WEBELEMENTS & BY CLASSES
+  //=====================================================
+ 
+   public void waitForWebElementToAppearBy(WebElement ele) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		wait.until(ExpectedConditions.visibilityOf(ele));
+
+	}
+   
+   public void waitForWebElementsToAppearBy(List<WebElement> ele) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		wait.until(ExpectedConditions.visibilityOfAllElements(ele));
 
 	}
 	public void waitForWebElementToAppearBy(By findBy) {
@@ -50,12 +64,24 @@ public BasePage(WebDriver driver) {
 	    wait.until(ExpectedConditions.invisibilityOf(ele));
 
 	}
+	
+	public void waitForElementToAppearBy(By findBy) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+
+	}
 
 	public void waitbyDefault() throws InterruptedException
 	{
 		Thread.sleep(1000);
 	}
 
+	
+	  //===================================
+	  //   SELECT DROPDOWN - OPTIONS
+	  //===================================
+	
 	public void selectbyVisbleText(WebElement ele, String text)
 	{
 		try {
@@ -94,12 +120,9 @@ public BasePage(WebDriver driver) {
 	} */
 	
 	
-	public void waitForElementToAppearBy(By findBy) {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
-
-	}
+	  //===================================
+	  //   ELEMENTS HANDILED BY - ID
+	  //===================================
 
 	public void clickById(String id)
 	{
@@ -114,6 +137,27 @@ public BasePage(WebDriver driver) {
 		System.out.println (e);
 		}
 	}
+	
+	
+	public void sendKeysById(String xpath,String value)
+	{
+		try {
+
+		driver.findElement(By.id(xpath)).clear();
+		driver.findElement(By.id(xpath)).sendKeys(value);
+				}
+		catch (Exception e)
+		{
+			System.out.println (e);
+			}
+		}
+	
+	
+	  //===================================
+	  //   ELEMENTS HANDILED BY - XPATH
+	  //===================================
+	
+	
 	public void clickByXpath(String xpath)
 	{
 		try {
@@ -141,33 +185,53 @@ public BasePage(WebDriver driver) {
 			}
 		}
 
-	public void sendKeysById(String xpath,String value)
-	{
-		try {
-
-		driver.findElement(By.id(xpath)).clear();
-		driver.findElement(By.id(xpath)).sendKeys(value);
-				}
-		catch (Exception e)
-		{
-			System.out.println (e);
-			}
-		}
+	
 
 		public String getTextByXpath (String xpath)
 		{
-			 String text = driver.findElement(By.xpath(xpath)).getText();
+			By findBy = By.xpath(xpath);
+			waitForWebElementToAppearBy(findBy);
+			 String text = driver.findElement(findBy).getText();
 			 return text;
 		}
 		
-		public String getTextofElement(By findby) 
+		public String getTextofElement(By findBy) 
 		{
 			
-			waitForWebElementToAppearBy(findby);
+			waitForWebElementToAppearBy(findBy);
 			
 			//waitForWebElementToAppearBy(driver.findElement(findby));
-			return (driver.findElement(findby).getText());
+			return (driver.findElement(findBy).getText());
 		}
+		
+		public int getElementsCount(String xpath)
+		{
+			return ( driver.findElements(By.xpath(xpath)).size());
+			
+		}
+		
+		public Boolean isElementVisible(WebElement ele)
+		{
+			waitForWebElementToAppearBy(ele);
+			return (ele.isDisplayed());
+			
+		}
+		
+		public Boolean isElementVisible(String xpath)
+		{
+			By findBy = By.xpath(xpath);
+			waitForWebElementToAppearBy(findBy);
+			return (driver.findElement(findBy).isDisplayed());
+			
+		}
+		public void scrollElement(WebElement ele)
+		{
+			
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			js.executeScript("arguments[0].scrollIntoView(true);",ele);
+		}
+
+
 
 
 }

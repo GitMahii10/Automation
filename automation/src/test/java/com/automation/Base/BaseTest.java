@@ -70,7 +70,7 @@ public class BaseTest
 		return login;
 	} */
 
-	@AfterMethod(alwaysRun=true)
+	//@AfterMethod(alwaysRun=true)
 	public void tearDown()
 	{
 		if (driver != null)

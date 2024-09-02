@@ -14,7 +14,8 @@ public class MyCardPage extends BasePage {
 
 
 
-WebDriver driver;
+public WebDriver driver;
+public PaymentPage paymentPage ;
 
 	public MyCardPage(WebDriver driver)
 	{
@@ -56,11 +57,12 @@ WebDriver driver;
     //     MYCART_PAGE - METHORDS
     //================================
 	
-	public MyCardPage gotoBuyNow()
+	public PaymentPage gotoBuyNow()
 	{
 		if (getBasketCount() !=0)
 		buyNowButton.click();
-		return this;
+		 paymentPage = new PaymentPage(driver);
+		return paymentPage;
 	}
 	public MyCardPage deleteItem()
 	{
@@ -71,6 +73,7 @@ WebDriver driver;
 	
 	public int getBasketCount()
 	{
+		waitForWebElementsToAppearBy(cartItems);
 		int count = cartItems.size();
 		return count;
 	} 

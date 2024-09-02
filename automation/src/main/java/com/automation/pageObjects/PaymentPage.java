@@ -1,5 +1,6 @@
 package com.automation.pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -28,6 +29,7 @@ public class PaymentPage extends BasePage {
 	String placeOrder ="//a[contains(.,'Place Order ')]";
 	String successMSG = "//table//h1[@class = 'hero-primary']";
 	String orderHistory = "//label[contains(.,'Orders History Page ')]";
+	String orderId     = "//label[@class = 'ng-star-inserted']";
 
 
 	public void addCardNo (String cardValuer)
@@ -55,7 +57,10 @@ public class PaymentPage extends BasePage {
 
 	public void placeOrder ()
 	{
+		
+		scrollElement(driver.findElement(By.xpath( placeOrder)));
 		clickByXpath (placeOrder);
+		System.out.println("place Order clicked");
 	}
 
 	public void completeOrder (String cardName, String name, String cvv, String country)
@@ -70,8 +75,18 @@ public class PaymentPage extends BasePage {
 	public String getSuccessMsg ()
 	{
 		return getTextByXpath(successMSG);
-	}
+	} 
+	
+	public String getOrderID()
+	{
+		return getTextByXpath(orderId);
+	} 
 
+	
+	public void  gotoOrderHistoryPage ()
+	{
+		clickByXpath(orderHistory);
+	} 
 
 
 
