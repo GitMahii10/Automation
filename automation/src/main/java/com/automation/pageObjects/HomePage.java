@@ -82,8 +82,9 @@ WebDriver driver;
 	{
 		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCartByXpath).click();
-		waitForElementToAppearBy(toastMessageByXpath);
 		waitForElementToDisappear(spinner);
+		waitForElementToAppearBy(toastMessageByXpath);
+		
 
 
 	}
@@ -113,6 +114,7 @@ WebDriver driver;
 
 	public void gotoCartPage()
 	{
+		waitForWebElementToAppear(cartpage);
 		cartpage.click();
 	}
 

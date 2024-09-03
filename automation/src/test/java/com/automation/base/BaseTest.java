@@ -1,9 +1,16 @@
-package com.automation.Base;
+package com.automation.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,6 +20,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import com.automation.pageObjects.LoginPage;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class BaseTest
 {
@@ -70,7 +79,7 @@ public class BaseTest
 		return login;
 	} */
 
-	//@AfterMethod(alwaysRun=true)
+	//s@AfterTest(alwaysRun=true)
 	public void tearDown()
 	{
 		if (driver != null)
@@ -82,6 +91,33 @@ public class BaseTest
 				{
 					System.out.println("the Driver is alreay null");
 				}
+	}
+	
+	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException
+	{
+		//read json to string
+	String jsonContent = 	FileUtils.readFileToString(new File(filePath), 
+			StandardCharsets.UTF_8);
+	
+	//String to HashMap- Jackson Databind
+	
+	ObjectMapper mapper = new ObjectMapper();
+	  List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
+      });
+	  return data;
+	
+	//{map, map}
+
+	}
+	public String takeScreenShot(String tcName,WebDriver driver) throws IOException {
+		
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File desc = new File(System.getProperty("user.dir") + "//reports//" + tcName + ".png");
+		FileUtils.copyFile(source, desc);
+		//FileUtils.copyFile(source, file);
+		return System.getProperty("user.dir") + "//reports//" + tcName + ".png";
+		
 	}
 
 }

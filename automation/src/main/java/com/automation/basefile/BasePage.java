@@ -47,7 +47,7 @@ public BasePage(WebDriver driver) {
 	public void waitForWebElementToAppearBy(By findBy) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(findBy));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 
 	}
 	

@@ -59,7 +59,16 @@ public class PaymentPage extends BasePage {
 	{
 		
 		scrollElement(driver.findElement(By.xpath( placeOrder)));
+		if (isElementVisible(placeOrder))
+		{
+			System.out.println("place Order ELSE part is entered");
+			clickByXpath (placeOrder);
+		}
+		else {
+			System.out.println("place Order ELSE part is entered");
+			clickByXpath (placeOrder);
 		clickByXpath (placeOrder);
+		}
 		System.out.println("place Order clicked");
 	}
 

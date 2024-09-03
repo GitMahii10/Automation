@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import com.automation.Base.BaseTest;
+import com.automation.base.BaseTest;
 import com.automation.pageObjects.LoginPage;
 import com.automation.pageObjects.RegistrationPage;
 
