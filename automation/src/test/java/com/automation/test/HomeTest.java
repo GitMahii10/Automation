@@ -11,6 +11,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.automation.base.BaseTest;
+import com.automation.base.ReTry;
 import com.automation.pageObjects.HomePage;
 import com.automation.pageObjects.LoginPage;
 import com.automation.pageObjects.MyCardPage;
@@ -19,7 +20,7 @@ import com.automation.pageObjects.PaymentPage;
 
 public class HomeTest extends BaseTest{
 	
-	@Test (priority = 1, dataProvider="getData")
+	@Test (priority = 3, dataProvider="getDataobj")//, retryAnalyzer = ReTry.class)
 	public void verifyProducts(String prouctName, String email,String password) throws InterruptedException {
 		
 		
@@ -39,7 +40,29 @@ public class HomeTest extends BaseTest{
 		
 	}
 	
-	@Test  (priority  = 1, dataProvider = "getDataNew")//, dependsOnMethods = "verifyProducts")
+	@Test (priority = 1, dataProvider="getData", retryAnalyzer = ReTry.class)
+	public void verifyProductswithJson(HashMap <String, String> input) throws InterruptedException {
+		
+		
+		
+		
+		LoginPage loginPage = new LoginPage(driver);
+		HomePage homePage = new HomePage(driver);
+		
+		//loginPage.login(input.get("email"), input.get("password"));
+		
+		assertEquals("Login Successfully", loginPage.login(input.get("email"), input.get("password")).getErrorMessage());
+		
+		homePage.addProductToCart(input.get("product"));
+		assertEquals (1, homePage.getCartCount());
+		
+		//Assert.assertEquals(false, true);
+		//homePage.addAllProductsToCart();
+		//assertEquals (1, homePage.getCartCount());
+		
+	}
+	
+	@Test  (priority  = 2, dataProvider = "getDataNew")//, dependsOnMethods = "verifyProducts")
 	public void completePayment(HashMap<String, String> map) throws InterruptedException {
 		
 		
@@ -87,10 +110,10 @@ public class HomeTest extends BaseTest{
 	{
 
 		
-		List<HashMap<String,String>> data = getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//automation//testData//LogInCreds.json");
-		return new Object[][]  {{data.get(0)}, {data.get(1) } };
+		List<HashMap<String,String>> data = getJsonDataToMap(System.getProperty("user.dir")+"\\src\\test\\java\\com\\automation\\testData\\LogInCreds.json");
+		return new Object[][]  {{data.get(0)}};//, {data.get(1) } };
 		
-		
+
 	} 
 	
 	@DataProvider
@@ -117,7 +140,7 @@ public class HomeTest extends BaseTest{
 		map1.put("password", "MKO)(*nji9");
 		map1.put("product", "ZARA COAT 3");
 		
-		return new Object [] [] {{map1}, {map1}};
+		return new Object [] [] {{map1}};//, {map1}};
 		
 		
 	}

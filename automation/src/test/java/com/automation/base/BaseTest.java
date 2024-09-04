@@ -63,6 +63,8 @@ public class BaseTest
 		initializeDriver();
 		driver.get(applicationURL);
          loginPage = new LoginPage(driver);
+         
+         System.out.println(" Driver is initiated");
 		return loginPage;
 
 	}
@@ -79,7 +81,7 @@ public class BaseTest
 		return login;
 	} */
 
-	//s@AfterTest(alwaysRun=true)
+	@AfterMethod(alwaysRun=true)
 	public void tearDown()
 	{
 		if (driver != null)

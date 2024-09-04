@@ -39,7 +39,7 @@ public class Listeners extends BaseTest implements  ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		extentTest.get().fail(result.getThrowable());//
+		extentTest.get().fail(result.getThrowable());
 		
 		try {
 			driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
