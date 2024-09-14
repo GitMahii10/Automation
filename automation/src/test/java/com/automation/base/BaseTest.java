@@ -43,15 +43,18 @@ public class BaseTest
 
 			prop.load(file);
 			applicationURL = prop.getProperty("appURL");
-			browserName = prop.getProperty("browser");
+			browserName = System.getProperty("browser")== null ? prop.getProperty("browser"): System.getProperty("browser");
 
 
-		if (browserName.equalsIgnoreCase("chrome")) {
+		if (browserName.equalsIgnoreCase("chrome")) 
+		{
 			driver = new ChromeDriver();
-		} else if (browserName.equalsIgnoreCase("firefox")) {
+		}
+		else if (browserName.equalsIgnoreCase("firefox"))
+		{
 			driver = new FirefoxDriver();
 		}
-		//driver.manage().deleteAllCookies();
+		//driver.manage()//.deleteAllCookies();
 		driver.manage().window().maximize();
 
 
