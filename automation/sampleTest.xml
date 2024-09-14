@@ -14,14 +14,14 @@
      
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="Submit Order Test">
+  <test thread-count="5" name="Dummy Test">
     <classes>
      
       <class name="com.automation.test.FirstTest"/>
      
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="Submit Order Test">
+  <test thread-count="5" name="LogIn Test">
     <classes>
       
       <class name="com.automation.test.LogInTest"/>
