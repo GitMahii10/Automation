@@ -11,6 +11,20 @@
   <test thread-count="5" name="Submit Order Test">
     <classes>
       <class name="com.automation.test.HomeTest"/>
+     
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="Submit Order Test">
+    <classes>
+     
+      <class name="com.automation.test.FirstTest"/>
+     
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="Submit Order Test">
+    <classes>
+      
+      <class name="com.automation.test.LogInTest"/>
     </classes>
   </test> <!-- Test -->
   
