@@ -5,20 +5,28 @@ import static org.testng.Assert.assertEquals;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import com.automation.base.BaseTest;
 import com.automation.pageObjects.LoginPage;
 import com.automation.pageObjects.RegistrationPage;
 
-public class LogInTest extends BaseTest{
+public class LogInTest extends BaseTest
 
+{
+
+	protected static Logger logger = LoggerFactory.getLogger(LogInTest.class);
 	
 	@Test
 	public void VerifyLogIn() throws IOException
 	{
 		String email = "testdata@mailinator.com";
 		String password = "MKO)(*nji9";
+		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 
 		 loginPage = new LoginPage(driver);
 		 
@@ -27,6 +35,8 @@ public class LogInTest extends BaseTest{
 
 	
 	assertEquals("Login Successfully", loginPage.login(email, password).getErrorMessage());
+	
+	logger.info("End of TEST METHOD " +Methodname + "is  PASS");
 
 	}
 
@@ -39,8 +49,11 @@ public class LogInTest extends BaseTest{
 		String lastName = "NewlastName";
 		String mobileNo = "9965265879";
 		String occupation = "Engineer";
-		String email = "tetaaaa35411237@mailinator.com";
+		String email = "t41123237@mailinator.com";
 		String password = "MKO)(*nji9";
+		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 
 
 		//LoginPage loginPage = launchApp();
@@ -58,11 +71,15 @@ public class LogInTest extends BaseTest{
 		        .chooseGender("Male")
 		        .submitRegistration();
 		 
-		System.out.println ( regPage.getMessage());
+		//System.out.println ( regPage.getMessage());
 
 
 		 assertEquals("Account Created Successfully", regPage.confirmRegistration());
+		 
+		 logger.info("End of TEST METHOD " +Methodname + "is  PASS");
 	}
+	
+	
 	@Test
 	public void registerwithExistingEmail() throws IOException
 	{
@@ -72,6 +89,9 @@ public class LogInTest extends BaseTest{
 		String occupation = "Engineer";
 		String email = "tetaataa1123@mailinator.com";
 		String password = "MKO)(*nji9";
+		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 
 
 		//LoginPage loginPage = launchApp();
@@ -89,7 +109,9 @@ public class LogInTest extends BaseTest{
 		        .submitRegistration();
 		 
 		
-		 assertEquals("User already exiIsits with this Email Id!", regPage.getMessage());
+		 assertEquals("User already exisits with this Email Id!", regPage.getMessage());
+		 
+		 logger.info("End of TEST METHOD " +Methodname + "is  PASS");
 	}
 
 }

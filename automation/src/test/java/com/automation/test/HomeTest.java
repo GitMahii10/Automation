@@ -18,13 +18,26 @@ import com.automation.pageObjects.MyCardPage;
 import com.automation.pageObjects.OrdersPage;
 import com.automation.pageObjects.PaymentPage;
 
-public class HomeTest extends BaseTest{
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class HomeTest extends BaseTest
+{
+	
+	
+	protected static Logger logger = LoggerFactory.getLogger(HomeTest.class);
+	
+	
 	
 	@Test (priority = 3, dataProvider="getDataobj")//, retryAnalyzer = ReTry.class)
-	public void verifyProducts(String prouctName, String email,String password) throws InterruptedException {
+	
+	public void verifyProducts(String prouctName, String email,String password) throws InterruptedException
+	{
 		
 		
-		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 		
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
@@ -33,6 +46,8 @@ public class HomeTest extends BaseTest{
 		
 		homePage.addProductToCart(prouctName);
 		assertEquals (1, homePage.getCartCount());
+		
+		logger.info("End of TEST METHOD " +Methodname + "is  PASS");
 		
 		//Assert.assertEquals(false, true);
 		//homePage.addAllProductsToCart();
@@ -43,8 +58,8 @@ public class HomeTest extends BaseTest{
 	@Test (priority = 1, dataProvider="getData", retryAnalyzer = ReTry.class)
 	public void verifyProductswithJson(HashMap <String, String> input) throws InterruptedException {
 		
-		
-		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 		
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
@@ -60,6 +75,8 @@ public class HomeTest extends BaseTest{
 		//homePage.addAllProductsToCart();
 		//assertEquals (1, homePage.getCartCount());
 		
+		logger.info("End of TEST METHOD " +Methodname + "is  PASS");
+		
 	}
 	
 	@Test  (priority  = 2, dataProvider = "getDataNew")//, dependsOnMethods = "verifyProducts")
@@ -69,6 +86,9 @@ public class HomeTest extends BaseTest{
 		/*String prouctName = "ZARA COAT 3";
 		String email = "testdata@mailinator.com";
 		String password = "MKO)(*nji9";*/
+		
+		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		logger.info("Start of " +Methodname);
 		
 		String cardNo = "4242 4242 4242 4242";
 		String name = "TEST";
@@ -98,7 +118,8 @@ public class HomeTest extends BaseTest{
 		
 		Assert.assertEquals(trimOrderid, orderPage.getOrderId());
 		
-		System.out.println("Order is created succssfully");
+		//System.out.println("Order is created succssfully");
+		logger.info("End of TEST METHOD " +Methodname + "is  PASS");
 		
 		
 		

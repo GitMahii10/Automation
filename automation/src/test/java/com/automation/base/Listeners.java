@@ -3,11 +3,14 @@ package com.automation.base;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.automation.resources.ExtendReporterNG;
+import com.automation.test.HomeTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -20,11 +23,15 @@ public class Listeners extends BaseTest implements  ITestListener{
 	ExtentReports extent = ExtendReporterNG.getReportObject();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); 
 	
+	protected static Logger logger = LoggerFactory.getLogger(HomeTest.class);
+	
 	@Override
 	public void onTestStart(ITestResult result) {
 		
 		test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
+		
+		logger.info("***LOG from REPORT *** Started TEST in ITestListener " +test);
 		
 		//unique thread id(ErrorValidationTest)->test
 	}
@@ -33,6 +40,7 @@ public class Listeners extends BaseTest implements  ITestListener{
 	public void onTestSuccess(ITestResult result) {
 		
 		extentTest.get().log(Status.PASS, "Test Passed");
+		logger.info("***LOG from REPORT ***  " + test +"is *** PASS ***");
 		
 	}
 
@@ -64,25 +72,25 @@ public class Listeners extends BaseTest implements  ITestListener{
 		
 		
 		//Screenshot, Attach to report
-		
+		logger.info("***LOG from REPORT ***  " + test +"is *** FAILLED ***");
 		
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		logger.info("***LOG from REPORT ***  " + test +"is *** SKIPPED ***");
 		
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -67,8 +67,7 @@ public class BaseTest
 		driver.get(applicationURL);
          loginPage = new LoginPage(driver);
          
-         System.out.println(" Driver is initiated");
-		return loginPage;
+        return loginPage;
 
 	}
 
@@ -90,7 +89,7 @@ public class BaseTest
 		if (driver != null)
 		{
 			driver.quit();
-				System.out.println("Driver is closed ");
+				
 		}
 				else
 				{
