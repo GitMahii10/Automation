@@ -6,7 +6,7 @@
       <class name="com.automation.test.HomeTest">
         <methods>
           <include name="launchApp"/>
-          <include name="verifyProductswithJson"/>
+          <include name="verifyProducts" invocation-numbers="0"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.automation.test.HomeTest -->

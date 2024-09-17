@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -19,14 +22,13 @@ import com.automation.pageObjects.OrdersPage;
 import com.automation.pageObjects.PaymentPage;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 public class HomeTest extends BaseTest
 {
 	
 	
-	protected static Logger logger = LoggerFactory.getLogger(HomeTest.class);
+	protected static Logger logger = LogManager.getLogger(HomeTest.class);
 	
 	
 	
@@ -38,6 +40,8 @@ public class HomeTest extends BaseTest
 		
 		String Methodname = new Object(){}.getClass().getEnclosingMethod().getName();
 		logger.info("Start of " +Methodname);
+		
+		logger.info("log error");
 		
 		LoginPage loginPage = new LoginPage(driver);
 		HomePage homePage = new HomePage(driver);
