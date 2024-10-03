@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.automation.test.HomeTest">
+      <class name="com.automation.test.LogInTest">
         <methods>
+          <include name="VerifyRegistration"/>
           <include name="launchApp"/>
-          <include name="verifyProducts" invocation-numbers="0"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.automation.test.HomeTest -->
+      </class> <!-- com.automation.test.LogInTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

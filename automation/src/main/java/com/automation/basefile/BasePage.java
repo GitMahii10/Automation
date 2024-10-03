@@ -224,6 +224,9 @@ public BasePage(WebDriver driver) {
 			return (driver.findElement(findBy).isDisplayed());
 			
 		}
+		
+		
+		// Javascripts 
 		public void scrollElement(WebElement ele)
 		{
 			

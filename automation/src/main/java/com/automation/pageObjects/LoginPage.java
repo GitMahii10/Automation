@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
 	{
 		super(driver);
 
-		//this.driver=driver;
+		this.driver=driver;
 		PageFactory.initElements(driver, this);
 
 	}

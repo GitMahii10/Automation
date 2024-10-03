@@ -12,6 +12,7 @@
     <classes>
       <class name="com.automation.test.HomeTest"/>
      
+     
     </classes>
   </test> <!-- Test -->
   
