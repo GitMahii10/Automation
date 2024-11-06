@@ -32,7 +32,7 @@ public class HomeTest extends BaseTest
 	
 	
 	
-	@Test (priority = 3, dataProvider="getDataobj")//, retryAnalyzer = ReTry.class)
+	@Test (priority = 3, dataProvider="getDataobj", retryAnalyzer = ReTry.class)
 	
 	public void verifyProducts(String prouctName, String email,String password) throws InterruptedException
 	{
