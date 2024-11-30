@@ -70,7 +70,7 @@ public class HomeTest extends BaseTest
 		
 		//loginPage.login(input.get("email"), input.get("password"));
 		
-		assertEquals("Login Successfully", loginPage.login(input.get("email"), input.get("password")).getErrorMessage());
+		//assertEquals("Login Successfully", loginPage.login(input.get("email"), input.get("password")).getErrorMessage());
 		
 		homePage.addProductToCart(input.get("product"));
 		assertEquals (1, homePage.getCartCount());

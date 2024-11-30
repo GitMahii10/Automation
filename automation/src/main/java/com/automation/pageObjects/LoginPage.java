@@ -40,7 +40,8 @@ public class LoginPage extends BasePage {
 
 	@FindBy(css="[class*='flyInOut']")
 	WebElement errorMessage;
-
+			
+			
 	@FindBy (xpath = "//form//div[contains(text(), '*Password is required')]'")
 	WebElement passwordEException;
 
@@ -49,7 +50,14 @@ public class LoginPage extends BasePage {
 
 	@FindBy	(xpath = "(//a [contains(text(), 'Register')])[1]")
 	WebElement register;
-
+	
+	@FindBy (xpath="//div[@class='form-group']/div/div") //div[@class='ng-star-inserted']
+	WebElement EnterInvaildEmailException;//div[@class='form-group']/div/div
+	
+	
+	@FindBy (xpath="//div[@class='form-group mb-4']/div/div") //div[@class='ng-star-inserted']
+	WebElement EnterInvaildPasswordException;
+	
 
 	//=====================================
     //     REGISTRATION_PAGE - ELEMENTS
@@ -112,13 +120,39 @@ public class LoginPage extends BasePage {
 
 	}
 
-	public String getErrorMessage()
+	public String getLogInMessage()
 	{
 
 		waitForWebElementToAppear(errorMessage);
 		return errorMessage.getText();
 	}
-
+	
+	public String emailInvalidMessage() {
+		waitForWebElementToAppear(EnterInvaildEmailException);
+		return EnterInvaildEmailException.getText();
+	}
+	public String passwordInvalidMessage() {
+		waitForWebElementToAppear(EnterInvaildPasswordException);
+		return EnterInvaildPasswordException.getText();
+	}
+	public String emailMandatory () {
+		waitForWebElementToAppear(emailException);
+		String logEmailException =EnterInvaildPasswordException.getText();
+		return logEmailException;
+		
+		
+	}
+	public String passwordMandatory () {
+		waitForWebElementToAppear(passwordEException);
+		String passwordException=passwordEException.getText();
+		return passwordException;
+		
+/*	public String newEmailId1() 
+	{
+			waitForWebElementToAppear(EnterInvaildEmailException);
+			return EnterInvaildEmailException.getText();
+		} */
+	}
 	public void goTo()
 	{
 		driver.get("https://rahulshettyacademy.com/client");

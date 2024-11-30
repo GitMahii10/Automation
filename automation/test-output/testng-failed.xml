@@ -5,7 +5,7 @@
     <classes>
       <class name="com.automation.test.LogInTest">
         <methods>
-          <include name="VerifyRegistration"/>
+          <include name="verifyManitoryFieldsValidation"/>
           <include name="launchApp"/>
           <include name="tearDown"/>
         </methods>

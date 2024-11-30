@@ -1,80 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-23T20:30:04 IST" name="Default suite" finished-at="2024-10-23T20:31:02 IST" duration-ms="58529">
+  <suite started-at="2024-11-30T15:30:50 IST" name="Default suite" finished-at="2024-11-30T15:31:00 IST" duration-ms="10034">
     <groups>
     </groups>
-    <test started-at="2024-10-23T20:30:04 IST" name="Default test" finished-at="2024-10-23T20:31:02 IST" duration-ms="58529">
-      <class name="com.automation.test.HomeTest">
-        <test-method is-config="true" signature="launchApp()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:04 IST" name="launchApp" finished-at="2024-10-23T20:30:20 IST" duration-ms="15338" status="PASS">
+    <test started-at="2024-11-30T15:30:50 IST" name="Default test" finished-at="2024-11-30T15:31:00 IST" duration-ms="10034">
+      <class name="com.automation.test.LogInTest">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:com.automation.test.LogInTest@4ec4f3a0]" started-at="2024-11-30T15:30:50 IST" name="launchApp" finished-at="2024-11-30T15:30:58 IST" duration-ms="8031" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp -->
-        <test-method signature="verifyProductswithJson(java.util.HashMap)[pri:1, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:20 IST" name="verifyProductswithJson" data-provider="getData" finished-at="2024-10-23T20:30:24 IST" duration-ms="4672" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{password=MKO)(*nji9, product=ZARA COAT 3, email=testdata@mailinator.com}]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="VerifyValidLogIn()[pri:0, instance:com.automation.test.LogInTest@4ec4f3a0]" started-at="2024-11-30T15:30:58 IST" name="VerifyValidLogIn" finished-at="2024-11-30T15:30:59 IST" duration-ms="1415" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyProductswithJson -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:24 IST" name="tearDown" finished-at="2024-10-23T20:30:25 IST" duration-ms="1033" status="PASS">
+        </test-method> <!-- VerifyValidLogIn -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.LogInTest@4ec4f3a0]" started-at="2024-11-30T15:30:59 IST" name="tearDown" finished-at="2024-11-30T15:31:00 IST" duration-ms="484" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApp()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:25 IST" name="launchApp" finished-at="2024-10-23T20:30:34 IST" duration-ms="8393" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApp -->
-        <test-method signature="completePayment(java.util.HashMap)[pri:2, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:34 IST" name="completePayment" data-provider="getDataNew" finished-at="2024-10-23T20:30:44 IST" duration-ms="10175" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{password=MKO)(*nji9, product=ZARA COAT 3, email=testdata@mailinator.com}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- completePayment -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:44 IST" name="tearDown" finished-at="2024-10-23T20:30:45 IST" duration-ms="1378" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApp()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:45 IST" name="launchApp" finished-at="2024-10-23T20:30:53 IST" duration-ms="7970" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApp -->
-        <test-method signature="verifyProducts(java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:53 IST" name="verifyProducts" data-provider="getDataobj" finished-at="2024-10-23T20:30:58 IST" duration-ms="4821" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ZARA COAT 3]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[testdata@mailinator.com]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[MKO)(*nji9]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyProducts -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.automation.test.HomeTest@48d61b48]" started-at="2024-10-23T20:30:58 IST" name="tearDown" finished-at="2024-10-23T20:31:02 IST" duration-ms="3959" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.automation.test.HomeTest -->
+      </class> <!-- com.automation.test.LogInTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

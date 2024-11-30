@@ -21,15 +21,10 @@
    <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
-    <version>4.23.1</version>
+    <version>4.27.0</version>
     </dependency>
-    
- <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-devtools-v128</artifactId>
-        <version>4.24.0</version>
-    </dependency>
-    
+      
+ 
     <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>

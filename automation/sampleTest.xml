@@ -8,7 +8,7 @@
 </listeners>
 
 
-  <test thread-count="5" name="Submit Order Test">
+  <test  name="Submit Order Test">
     <classes>
       <class name="com.automation.test.HomeTest"/>
      
@@ -16,13 +16,17 @@
     </classes>
   </test> <!-- Test -->
   
-  <test thread-count="5" name="LogIn Test">
+  <test  name="LogIn Test">
     <classes>
       
       <class name="com.automation.test.LogInTest"/>
     </classes>
-  </test> <!-- Test -->
-  
-   
-   <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+</suite> 
+
+
+
+
+
+
+
